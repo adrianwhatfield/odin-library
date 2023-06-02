@@ -1,0 +1,74 @@
+@font-face {
+    font-family: Antic;
+    src: url(fonts/Antic-Regular.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffef4;
+    color: #283618;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Antic, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+form {
+    padding: 5rem;
+}
+
+footer {
+    justify-self: flex-end;
+    padding-top: 12rem;
+}
+
+input {
+    background-color: #DDA15E;
+    margin: 5px;
+    padding: 5px;
+    border: #283618 solid 2px;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #BC6C25;
+    color: #FEFAE0;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    gap: 10px;
+}
+
+.headings {
+    background-color: #283618;
+    color: #FEFAE0;
+}
+
+.books {
+    flex-direction: column;
+    background-color:  #606C38;
+    color: #fdfbf0;
+}
+
+.headings, .books {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.book {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 60px;
+}
