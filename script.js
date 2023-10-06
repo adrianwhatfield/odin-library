@@ -1,26 +1,46 @@
 let myLibrary = [];
+const booksContainer = document.getElementById("books");
+
+let bookForm = document.getElementById("bookForm");
+
+bookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let titleElement = document.getElementById("title");
+    let authorElement = document.getElementById("author");
+    let pagesElement = document.getElementById("pages");
+    let readElement = document.getElementById("read");
+
+    let title = titleElement.value;
+    let author = authorElement.value;
+    let pages = parseInt(pagesElement.value);
+    let read = readElement.checked;
+
+    let newBook = new Book(title, author, pages, read);
+    addBookToLibrary(newBook);
+    displayLibrary();
+})
 
 function Book(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
     this.info = function() {
         if (isRead == true){
-            return `${title} by ${author}, ${pages} pages, read`
+            return `${title} by ${author}, ${pages} pages, read`;
         } else {
-            return `${title} by ${author}, ${pages} pages, not yet read`
+            return `${title} by ${author}, ${pages} pages, not yet read`;
         }
     }
 }
 
 function addBookToLibrary(book) {
-    myLibrary.push(book)
+    myLibrary.push(book);
 }
 
 function displayLibrary() {
-    const booksContainer = document.getElementById("books");
-
+    clearLibrary()
     for (let book in myLibrary) {
         const bookDiv = document.createElement("div");
         bookDiv.setAttribute("class", "book");
@@ -50,9 +70,8 @@ function displayLibrary() {
     }
 }
 
-let myBook = new Book("title name", "author name", 200, true);
-addBookToLibrary(myBook);
-addBookToLibrary(myBook);
-addBookToLibrary(myBook);
-addBookToLibrary(myBook);
-displayLibrary()
+function clearLibrary() {
+    while (booksContainer.firstChild) {
+        booksContainer.removeChild(booksContainer.lastChild);
+    }
+}
