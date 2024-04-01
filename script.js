@@ -33,10 +33,16 @@ function Book(title, author, pages, isRead) {
             return `${title} by ${author}, ${pages} pages, not yet read`;
         }
     }
+    this.id;
 }
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    book.id = myLibrary.length;
+}
+
+function removeBookFromLibrary(book) {
+    myLibrary = myLibrary.slice(book.id);
 }
 
 function displayLibrary() {
@@ -67,6 +73,15 @@ function displayLibrary() {
             read.innerHTML = "No";
         }
         bookDiv.appendChild(read);
+        
+        const deleteElement = document.createElement("p");
+        deleteElement.innerHTML = "delete";
+        bookDiv.appendChild(deleteElement);
+
+        deleteElement.addEventListener("click", function(){
+            bookDiv.remove();
+            removeBookFromLibrary(thisBook);
+        })
     }
 }
 
