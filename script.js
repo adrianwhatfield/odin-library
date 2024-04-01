@@ -73,7 +73,17 @@ function displayLibrary() {
             read.innerHTML = "No";
         }
         bookDiv.appendChild(read);
-        
+
+        read.addEventListener("click", function(){
+            if (thisBook.isRead == true) {
+                thisBook.isRead = false;
+                read.innerHTML = "No";
+            } else {
+                thisBook.isRead = true;
+                read.innerHTML = "Yes";
+            }
+        })
+
         const deleteElement = document.createElement("p");
         deleteElement.innerHTML = "delete";
         bookDiv.appendChild(deleteElement);
